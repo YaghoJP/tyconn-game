@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ddcg8qn43j1k2"
+path="res://.godot/imported/coins.wav-705da7628176179eec2a199e5d759fbd.sample"
+
+[deps]
+
+source_file="res://Idle Assets/Sound/coins.wav"
+dest_files=["res://.godot/imported/coins.wav-705da7628176179eec2a199e5d759fbd.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
