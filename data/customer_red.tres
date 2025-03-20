@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="CustomerData" load_steps=5 format=3 uid="uid://c0tehcacfhdqy"]
 
 [ext_resource type="Script" uid="uid://cmax3at4nw4xq" path="res://data/costumer_data.gd" id="1_mkf2q"]
-[ext_resource type="Texture2D" uid="uid://crnmwtbj77tgu" path="res://Idle Assets/Sprites/Characters/red_body_squircle.png" id="1_shyaw"]
-[ext_resource type="Texture2D" uid="uid://nsm7t7sy7swd" path="res://Idle Assets/Sprites/Characters/face_i.png" id="2_lxpwj"]
-[ext_resource type="Texture2D" uid="uid://brgycp67n2m66" path="res://Idle Assets/Sprites/Characters/red_hand_peace.png" id="3_tbube"]
+[ext_resource type="Texture2D" uid="uid://cm1dey4qfb0ie" path="res://Idle Assets/Sprites/Characters/red_body_rhombus.png" id="1_shyaw"]
+[ext_resource type="Texture2D" uid="uid://powy61lxqjfh" path="res://Idle Assets/Sprites/Characters/face_b.png" id="2_lxpwj"]
+[ext_resource type="Texture2D" uid="uid://biq4j2o2udgwl" path="res://Idle Assets/Sprites/Characters/red_hand_thumb.png" id="3_tbube"]
 
 [resource]
 script = ExtResource("1_mkf2q")
-_body = ExtResource("1_shyaw")
-_face = ExtResource("2_lxpwj")
-_hand = ExtResource("3_tbube")
+body = ExtResource("1_shyaw")
+face = ExtResource("2_lxpwj")
+hand = ExtResource("3_tbube")
 metadata/_custom_type_script = "uid://cmax3at4nw4xq"

@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="CustomerData" load_steps=5 format=3 uid="uid://cg8s5c16d4cr5"]
 
-[ext_resource type="Texture2D" uid="uid://dsqeq8b1p56jw" path="res://Idle Assets/Sprites/Characters/yellow_body_rhombus.png" id="1_6f0fr"]
+[ext_resource type="Texture2D" uid="uid://cvosqxp0am8rq" path="res://Idle Assets/Sprites/Characters/yellow_body_circle.png" id="1_6f0fr"]
 [ext_resource type="Script" uid="uid://cmax3at4nw4xq" path="res://data/costumer_data.gd" id="1_mfl0v"]
-[ext_resource type="Texture2D" uid="uid://q7v2yald6wch" path="res://Idle Assets/Sprites/Characters/face_d.png" id="2_511yh"]
-[ext_resource type="Texture2D" uid="uid://q1acqmkfypsy" path="res://Idle Assets/Sprites/Characters/hand_yellow_peace.png" id="3_s2cyg"]
+[ext_resource type="Texture2D" uid="uid://bvch4x2edlq76" path="res://Idle Assets/Sprites/Characters/face_c.png" id="2_511yh"]
+[ext_resource type="Texture2D" uid="uid://pxunpwv4c43q" path="res://Idle Assets/Sprites/Characters/hand_yellow_rock.png" id="3_s2cyg"]
 
 [resource]
 script = ExtResource("1_mfl0v")
-_body = ExtResource("1_6f0fr")
-_face = ExtResource("2_511yh")
-_hand = ExtResource("3_s2cyg")
+body = ExtResource("1_6f0fr")
+face = ExtResource("2_511yh")
+hand = ExtResource("3_s2cyg")
 metadata/_custom_type_script = "uid://cmax3at4nw4xq"

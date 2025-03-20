@@ -1,10 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://20cvqfh6amdv"]
+[gd_scene load_steps=15 format=3 uid="uid://20cvqfh6amdv"]
 
 [ext_resource type="Texture2D" uid="uid://bjnitg45lgomt" path="res://Idle Assets/Sprites/Fondo.png" id="1_nnsk1"]
 [ext_resource type="Texture2D" uid="uid://cvt2byqv0yrki" path="res://Idle Assets/Sprites/Counter.png" id="2_4wyf3"]
 [ext_resource type="Texture2D" uid="uid://sycs11m5qdv3" path="res://Idle Assets/Sprites/Counter_half.png" id="3_k0juu"]
 [ext_resource type="Texture2D" uid="uid://dyuksmn68tgth" path="res://Idle Assets/Sprites/UI/Coffee.png" id="4_k0juu"]
 [ext_resource type="Texture2D" uid="uid://dexi3tbm2i2nd" path="res://Idle Assets/Sprites/UI/Burger.png" id="5_71j4m"]
+[ext_resource type="PackedScene" uid="uid://bdyk2seek6bd7" path="res://cashier/cashier.tscn" id="6_i7141"]
+[ext_resource type="Script" uid="uid://ck86wxmeaof7n" path="res://managers/customer_manager.gd" id="7_4mrxx"]
+[ext_resource type="Script" uid="uid://cmax3at4nw4xq" path="res://data/costumer_data.gd" id="8_jhx03"]
+[ext_resource type="Resource" uid="uid://b0rm2av47rbdk" path="res://data/customer_green.tres" id="9_o8fc1"]
+[ext_resource type="Resource" uid="uid://bwk7kwi657k77" path="res://data/customer_pink.tres" id="10_xo05s"]
+[ext_resource type="Resource" uid="uid://dti5fglhkcudv" path="res://data/customer_purple.tres" id="11_dss4m"]
+[ext_resource type="Resource" uid="uid://c0tehcacfhdqy" path="res://data/customer_red.tres" id="12_7t5mc"]
+[ext_resource type="Resource" uid="uid://cg8s5c16d4cr5" path="res://data/customer_yellow.tres" id="13_lakw3"]
+[ext_resource type="PackedScene" uid="uid://caotjj77v8uhc" path="res://costumer/customer.tscn" id="14_o8fc1"]
 
 [node name="World" type="Node2D"]
 
@@ -36,3 +45,24 @@ texture = ExtResource("3_k0juu")
 position = Vector2(63.75, -36.6667)
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("5_71j4m")
+
+[node name="Cashier" parent="." instance=ExtResource("6_i7141")]
+position = Vector2(542, 1141)
+
+[node name="CustomerManager" type="Node" parent="." node_paths=PackedStringArray("_customersSpawnPos")]
+script = ExtResource("7_4mrxx")
+_customersSpawnPos = [NodePath("TopSpawnPosition"), NodePath("BottomSpawnPosition")]
+_customersSprites = Array[ExtResource("8_jhx03")]([ExtResource("9_o8fc1"), ExtResource("10_xo05s"), ExtResource("11_dss4m"), ExtResource("12_7t5mc"), ExtResource("13_lakw3")])
+_customerScene = ExtResource("14_o8fc1")
+
+[node name="SpawnTimer" type="Timer" parent="CustomerManager"]
+wait_time = 4.0
+autostart = true
+
+[node name="TopSpawnPosition" type="Marker2D" parent="CustomerManager"]
+position = Vector2(-82, 202)
+
+[node name="BottomSpawnPosition" type="Marker2D" parent="CustomerManager"]
+position = Vector2(-82, 645)
+
+[connection signal="timeout" from="CustomerManager/SpawnTimer" to="CustomerManager" method="_on_spawn_timer_timeout"]

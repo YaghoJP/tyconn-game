@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="CustomerData" load_steps=5 format=3 uid="uid://dti5fglhkcudv"]
 
-[ext_resource type="Texture2D" uid="uid://cxafqqbiq1vl1" path="res://Idle Assets/Sprites/Characters/purple_body_circle.png" id="1_6wj8m"]
+[ext_resource type="Texture2D" uid="uid://bsnhi0eghhoh" path="res://Idle Assets/Sprites/Characters/purple_body_squircle.png" id="1_6wj8m"]
 [ext_resource type="Script" uid="uid://cmax3at4nw4xq" path="res://data/costumer_data.gd" id="1_taiki"]
-[ext_resource type="Texture2D" uid="uid://by2kbrr7sgmsj" path="res://Idle Assets/Sprites/Characters/face_f.png" id="2_mi5e7"]
-[ext_resource type="Texture2D" uid="uid://dmqxv7wburby7" path="res://Idle Assets/Sprites/Characters/purple_hand_thumb.png" id="3_0fxb4"]
+[ext_resource type="Texture2D" uid="uid://b5jk47et10yef" path="res://Idle Assets/Sprites/Characters/face_g.png" id="2_mi5e7"]
+[ext_resource type="Texture2D" uid="uid://ca1ylvnkyqqo2" path="res://Idle Assets/Sprites/Characters/purple_hand_open.png" id="3_mi5e7"]
 
 [resource]
 script = ExtResource("1_taiki")
-_body = ExtResource("1_6wj8m")
-_face = ExtResource("2_mi5e7")
-_hand = ExtResource("3_0fxb4")
+body = ExtResource("1_6wj8m")
+face = ExtResource("2_mi5e7")
+hand = ExtResource("3_mi5e7")
 metadata/_custom_type_script = "uid://cmax3at4nw4xq"

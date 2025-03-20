@@ -11,12 +11,13 @@ font = ExtResource("5_droot")
 font_size = 35
 font_color = Color(0, 0, 0, 1)
 
-[node name="Customer" node_paths=PackedStringArray("_body", "_face", "_handLeft", "_handRight") instance=ExtResource("1_am6p2")]
+[node name="Customer" node_paths=PackedStringArray("_body", "_face", "_handLeft", "_handRight", "_animation") instance=ExtResource("1_am6p2")]
 script = ExtResource("2_jufnv")
 _body = NodePath("Visuals/Body")
 _face = NodePath("Visuals/Face")
 _handLeft = NodePath("Visuals/HandLeft")
 _handRight = NodePath("Visuals/HandRigth")
+_animation = NodePath("AnimationPlayer")
 
 [node name="ItemBox" type="Control" parent="." index="2"]
 visible = false
