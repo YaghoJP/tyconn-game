@@ -15,7 +15,11 @@ func spawnCustomer() -> void:
 
 	var _spritesData: CustomerData = _customersSprites.pick_random()
 	_customer.setSprites(_spritesData)
-
+	
+	var _randomQuantity: int = randi_range(1,3)
+	var _randomItem: Item = GameManager.getRandomItem()
+	_customer.initCustomer(_randomItem, _randomQuantity)
+	
 	var _randomStartPosition: Marker2D = _customersSpawnPos.pick_random()
 	_customer.position = _randomStartPosition.position
 
@@ -24,7 +28,6 @@ func spawnCustomer() -> void:
 	var _tween: Tween = create_tween()
 	_tween.tween_property(_customer, "position", _customer.position + Vector2.RIGHT * 1350, 5.0)
 	_tween.finished.connect(func (): _customer.queue_free())
-
 
 func _on_spawn_timer_timeout() -> void:
 	spawnCustomer()
