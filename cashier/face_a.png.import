@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vukrm1i8u07n"
-path="res://.godot/imported/blue_body_square.png-eb425d75166602e61a4a40a035aa303c.ctex"
+uid="uid://jf60677t635w"
+path="res://.godot/imported/face_a.png-9b4c2bab9a193df907a63b0fdbccff9e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Idle Assets/Sprites/Characters/blue_body_square.png"
-dest_files=["res://.godot/imported/blue_body_square.png-eb425d75166602e61a4a40a035aa303c.ctex"]
+source_file="res://cashier/face_a.png"
+dest_files=["res://.godot/imported/face_a.png-9b4c2bab9a193df907a63b0fdbccff9e.ctex"]
 
 [params]
 
