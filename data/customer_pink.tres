@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CustomerData" load_steps=5 format=3 uid="uid://bwk7kwi657k77"]
+
+[ext_resource type="Texture2D" uid="uid://cd53ketkigoak" path="res://Idle Assets/Sprites/Characters/pink_body_squircle.png" id="1_b1451"]
+[ext_resource type="Script" uid="uid://cmax3at4nw4xq" path="res://data/costumer_data.gd" id="1_m8pd1"]
+[ext_resource type="Texture2D" uid="uid://dfp143xq7wvhp" path="res://Idle Assets/Sprites/Characters/face_h.png" id="2_jadyq"]
+[ext_resource type="Texture2D" uid="uid://baah2f1we17i1" path="res://Idle Assets/Sprites/Characters/pink_hand_point.png" id="3_0oapk"]
+
+[resource]
+script = ExtResource("1_m8pd1")
+_body = ExtResource("1_b1451")
+_face = ExtResource("2_jadyq")
+_hand = ExtResource("3_0oapk")
+metadata/_custom_type_script = "uid://cmax3at4nw4xq"

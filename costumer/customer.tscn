@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://caotjj77v8uhc"]
+
+[ext_resource type="PackedScene" uid="uid://bdyk2seek6bd7" path="res://cashier/cashier.tscn" id="1_am6p2"]
+[ext_resource type="Script" uid="uid://dctlwn45xbfti" path="res://costumer/customer.gd" id="2_jufnv"]
+[ext_resource type="Texture2D" uid="uid://fyj7kxnq2yhv" path="res://Idle Assets/Sprites/UI/circle.png" id="3_b76yl"]
+[ext_resource type="Texture2D" uid="uid://dyuksmn68tgth" path="res://Idle Assets/Sprites/UI/Coffee.png" id="4_i6lt4"]
+[ext_resource type="FontFile" uid="uid://due6jbyye53ld" path="res://Idle Assets/Fonts/font_score.ttf" id="5_droot"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2ylnv"]
+font = ExtResource("5_droot")
+font_size = 35
+font_color = Color(0, 0, 0, 1)
+
+[node name="Customer" node_paths=PackedStringArray("_body", "_face", "_handLeft", "_handRight") instance=ExtResource("1_am6p2")]
+script = ExtResource("2_jufnv")
+_body = NodePath("Visuals/Body")
+_face = NodePath("Visuals/Face")
+_handLeft = NodePath("Visuals/HandLeft")
+_handRight = NodePath("Visuals/HandRigth")
+
+[node name="ItemBox" type="Control" parent="." index="2"]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 3
+anchors_preset = 0
+offset_left = -154.0
+offset_top = -148.0
+offset_right = -54.0
+offset_bottom = -48.0
+
+[node name="ItemBallon" type="TextureRect" parent="ItemBox" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_b76yl")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ItemImage" type="TextureRect" parent="ItemBox/ItemBallon" index="0"]
+custom_minimum_size = Vector2(65, 65)
+layout_mode = 0
+offset_left = 5.0
+offset_top = 19.0
+offset_right = 70.0
+offset_bottom = 84.0
+texture = ExtResource("4_i6lt4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ItemLabel" type="Label" parent="ItemBox/ItemBallon" index="1"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 36.0
+offset_right = 89.0
+offset_bottom = 85.0
+text = "3"
+label_settings = SubResource("LabelSettings_2ylnv")
+horizontal_alignment = 1
+vertical_alignment = 1
