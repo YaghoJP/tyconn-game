@@ -16,12 +16,13 @@ var requestQuantity: int
 var currentOrderStatus: int
 
 var counterPosition: Vector2
+var waitingOrder: bool
+var beingServed: bool
 
 func initCustomer(item: Item, quantity: int) -> void:
 	requestItem = item
 	requestQuantity = quantity
 	currentOrderStatus = quantity
-	showOrderUI()
 
 func moveToCounter() -> void:
 	playMoveAnimation()
@@ -31,8 +32,11 @@ func moveToCounter() -> void:
 	_tween.tween_property(self, "position", counterPosition, 1.0)
 	_tween.tween_interval(0.5)
 	
-	_tween.finished.connect(func (): _animation.play("idle"))
-
+	_tween.finished.connect(func ():
+		_animation.play("idle")
+		waitingOrder = true
+		GameManager.onCustomerRequest.emit(self)
+	)
 func setSprites(_data: CustomerData) -> void:
 	_body.texture = _data.body
 	_face.texture = _data.face
