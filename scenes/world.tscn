@@ -65,4 +65,6 @@ position = Vector2(-82, 202)
 [node name="BottomSpawnPosition" type="Marker2D" parent="CustomerManager"]
 position = Vector2(-82, 645)
 
+[node name="CounterManager" type="Node" parent="."]
+
 [connection signal="timeout" from="CustomerManager/SpawnTimer" to="CustomerManager" method="_on_spawn_timer_timeout"]

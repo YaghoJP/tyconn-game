@@ -15,11 +15,22 @@ var requestItem: Item
 var requestQuantity: int 
 var currentOrderStatus: int
 
+var counterPosition: Vector2
+
 func initCustomer(item: Item, quantity: int) -> void:
 	requestItem = item
 	requestQuantity = quantity
 	currentOrderStatus = quantity
 	showOrderUI()
+
+func moveToCounter() -> void:
+	playMoveAnimation()
+	var _tween: Tween = create_tween()
+	_tween.tween_property(self, "position", Vector2(counterPosition.x, position.y), 1.0)
+	_tween.tween_interval(0.2)
+	_tween.tween_property(self, "position", counterPosition, 1.0)
+	_tween.tween_interval(0.5)
+	
 
 func setSprites(_data: CustomerData) -> void:
 	_body.texture = _data.body
