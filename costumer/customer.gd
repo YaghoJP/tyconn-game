@@ -31,6 +31,7 @@ func moveToCounter() -> void:
 	_tween.tween_property(self, "position", counterPosition, 1.0)
 	_tween.tween_interval(0.5)
 	
+	_tween.finished.connect(func (): _animation.play("idle"))
 
 func setSprites(_data: CustomerData) -> void:
 	_body.texture = _data.body
@@ -42,10 +43,7 @@ func showOrderUI() -> void:
 	_itemBox.show()
 	_itemTexture.texture = requestItem.spriteItem
 	_itemLabel.text = str(requestQuantity)
-	pass
 	
 func playMoveAnimation() -> void:
 	
 	_animation.play("move")
-	
-	pass

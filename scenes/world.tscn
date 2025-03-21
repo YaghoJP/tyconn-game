@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://20cvqfh6amdv"]
+[gd_scene load_steps=16 format=3 uid="uid://20cvqfh6amdv"]
 
 [ext_resource type="Texture2D" uid="uid://bjnitg45lgomt" path="res://Idle Assets/Sprites/Fondo.png" id="1_nnsk1"]
 [ext_resource type="Texture2D" uid="uid://cvt2byqv0yrki" path="res://Idle Assets/Sprites/Counter.png" id="2_4wyf3"]
@@ -14,6 +14,7 @@
 [ext_resource type="Resource" uid="uid://c0tehcacfhdqy" path="res://data/customer_red.tres" id="12_7t5mc"]
 [ext_resource type="Resource" uid="uid://cg8s5c16d4cr5" path="res://data/customer_yellow.tres" id="13_lakw3"]
 [ext_resource type="PackedScene" uid="uid://caotjj77v8uhc" path="res://costumer/customer.tscn" id="14_o8fc1"]
+[ext_resource type="Script" uid="uid://knq1rvjht3mt" path="res://managers/counter_manager.gd" id="15_xo05s"]
 
 [node name="World" type="Node2D"]
 
@@ -49,11 +50,12 @@ texture = ExtResource("5_71j4m")
 [node name="Cashier" parent="." instance=ExtResource("6_i7141")]
 position = Vector2(542, 1141)
 
-[node name="CustomerManager" type="Node" parent="." node_paths=PackedStringArray("_customersSpawnPos")]
+[node name="CustomerManager" type="Node" parent="." node_paths=PackedStringArray("_customersSpawnPos", "_counterManager")]
 script = ExtResource("7_4mrxx")
 _customersSpawnPos = [NodePath("TopSpawnPosition"), NodePath("BottomSpawnPosition")]
 _customersSprites = Array[ExtResource("8_jhx03")]([ExtResource("9_o8fc1"), ExtResource("10_xo05s"), ExtResource("11_dss4m"), ExtResource("12_7t5mc"), ExtResource("13_lakw3")])
 _customerScene = ExtResource("14_o8fc1")
+_counterManager = NodePath("../CounterManager")
 
 [node name="SpawnTimer" type="Timer" parent="CustomerManager"]
 wait_time = 4.0
@@ -65,6 +67,20 @@ position = Vector2(-82, 202)
 [node name="BottomSpawnPosition" type="Marker2D" parent="CustomerManager"]
 position = Vector2(-82, 645)
 
-[node name="CounterManager" type="Node" parent="."]
+[node name="CounterManager" type="Node" parent="." node_paths=PackedStringArray("counterPosition")]
+script = ExtResource("15_xo05s")
+counterPosition = [NodePath("Pos_0"), NodePath("Pos_1"), NodePath("Pos_2"), NodePath("Pos_3")]
+
+[node name="Pos_0" type="Marker2D" parent="CounterManager"]
+position = Vector2(370, 740)
+
+[node name="Pos_1" type="Marker2D" parent="CounterManager"]
+position = Vector2(480, 740)
+
+[node name="Pos_2" type="Marker2D" parent="CounterManager"]
+position = Vector2(590, 740)
+
+[node name="Pos_3" type="Marker2D" parent="CounterManager"]
+position = Vector2(700, 740)
 
 [connection signal="timeout" from="CustomerManager/SpawnTimer" to="CustomerManager" method="_on_spawn_timer_timeout"]
