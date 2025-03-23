@@ -7,9 +7,13 @@ class_name Cashier
 
 @export_category("Objects")
 @export var _animationPlayer: AnimationPlayer
+@export var _cookBar: CookBar
 
 var currentCustomer: Customer
 var counterPosition: Vector2
+
+var itemRequest: Item
+var itemCounterPos: Vector2
 
 func takeOrder() -> void:
 	moveToCustomer()
@@ -21,6 +25,8 @@ func setCustomer(custumer: Customer) -> void:
 	currentCustomer = custumer
 	custumer.beingServed = true
 	counterPosition = Vector2(custumer.position.x, custumer.position.y + 200)
+	itemRequest = custumer.requestItem
+	itemCounterPos = GameManager.getItemCounterPosition(itemRequest)
 
 func moveToCustomer() -> void:
 	var tween: Tween = create_tween()
@@ -29,3 +35,19 @@ func moveToCustomer() -> void:
 
 func moveToItemPosition() -> void:
 	_animationPlayer.play("idle")
+	var tween: Tween = create_tween()
+	tween.tween_property(self, "position", itemCounterPos, 2.0)
+	tween.tween_interval(0.5)
+	tween.finished.connect(func (): startCookTime())
+	
+func startCookTime() -> void:
+	_cookBar.show()
+	_cookBar.cookItem(itemRequest.cookTime)
+
+func _on_cook_bar_on_cook_completed() -> void:
+	_cookBar.hide()
+	_cookBar.resetBar()
+	deliverOrder()
+	
+func deliverOrder() -> void:
+	pass
