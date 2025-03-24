@@ -81,10 +81,11 @@ position = Vector2(590, 740)
 [node name="Pos_3" type="Marker2D" parent="CounterManager"]
 position = Vector2(700, 740)
 
-[node name="CashierManager" type="Node" parent="." node_paths=PackedStringArray("spawnCashier")]
+[node name="CashierManager" type="Node" parent="." node_paths=PackedStringArray("spawnCashier", "counterManager")]
 script = ExtResource("15_dss4m")
 cashierScene = ExtResource("6_i7141")
 spawnCashier = NodePath("SpawnCashier")
+counterManager = NodePath("../CounterManager")
 
 [node name="SpawnCashier" type="Marker2D" parent="CashierManager"]
 position = Vector2(544, 1093)

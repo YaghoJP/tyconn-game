@@ -1,6 +1,7 @@
 extends Node2D
 class_name Cashier
 
+signal onOrderCompleted(cashier: Cashier)
 
 @export_category("Variables")
 @export var moveSpeed: float = 50.0
@@ -34,13 +35,14 @@ func moveToCustomer() -> void:
 	_animationPlayer.play("move")
 
 func moveToItemPosition() -> void:
-	_animationPlayer.play("idle")
+	_animationPlayer.play("move")
 	var tween: Tween = create_tween()
 	tween.tween_property(self, "position", itemCounterPos, 2.0)
 	tween.tween_interval(0.5)
 	tween.finished.connect(func (): startCookTime())
 	
 func startCookTime() -> void:
+	_animationPlayer.play("idle")
 	_cookBar.show()
 	_cookBar.cookItem(itemRequest.cookTime)
 
@@ -50,4 +52,16 @@ func _on_cook_bar_on_cook_completed() -> void:
 	deliverOrder()
 	
 func deliverOrder() -> void:
-	pass
+	moveToCustomer()
+	await  get_tree().create_timer(1.1).timeout
+	currentCustomer.receiveOrder()
+	GameManager.currentCoins += itemRequest.profit
+	
+	if not currentCustomer.currentOrderStatus <= 0:
+		moveToItemPosition()
+	else:
+		_animationPlayer.play("idle")
+		currentCustomer = null
+		onOrderCompleted.emit(self)
+		
+		

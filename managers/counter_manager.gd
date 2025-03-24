@@ -11,6 +11,22 @@ var counter: Dictionary[int, Customer] = {
 	3:null,
 }
 
+func _ready() -> void:
+	GameManager.onCustomerOrderComplet.connect(onCustomerOrderComplet)
+	
+func onCustomerOrderComplet(customer: Customer) -> void:
+	for index: int in counter:
+		if counter[index] == customer:
+			counter[index] = null
+	
+
+func getFirstAvailableCustomer() -> Customer:
+	for customer: Customer in counter.values():
+		if customer != null:
+			if customer.waitingOrder and not customer.beingServed:
+				return customer
+	return null
+
 func getFreePosition() -> int:
 	for key in counter:
 		if counter[key] == null:

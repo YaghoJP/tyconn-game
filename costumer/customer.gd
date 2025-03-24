@@ -19,6 +19,11 @@ var counterPosition: Vector2
 var waitingOrder: bool
 var beingServed: bool
 
+func _process(delta: float) -> void:
+	
+	_itemLabel.text = str(currentOrderStatus)
+	
+
 func initCustomer(item: Item, quantity: int) -> void:
 	requestItem = item
 	requestQuantity = quantity
@@ -37,6 +42,26 @@ func moveToCounter() -> void:
 		waitingOrder = true
 		GameManager.onCustomerRequest.emit(self)
 	)
+	
+func orderCompleted() -> void:
+	_itemBox.hide()
+	waitingOrder = false
+	var counterTopPos: float = counterPosition.y - 180
+	
+	var tween:Tween = create_tween()
+	var finalPos: Vector2 = Vector2(counterPosition.x, counterTopPos)
+	tween.tween_property(self, "position", finalPos, 1.0)
+	tween.tween_interval(0.2)
+	var endPos: Vector2 = Vector2(counterPosition.x + 800, counterTopPos)
+	tween.tween_property(self,"position", endPos, 3.0)
+	tween.tween_interval(0.2)
+	tween.finished.connect(func(): GameManager.onCustomerOrderComplet.emit(self))
+	
+func receiveOrder() -> void:
+	currentOrderStatus -= 1
+	if currentOrderStatus <= 0:
+		orderCompleted()
+	
 func setSprites(_data: CustomerData) -> void:
 	_body.texture = _data.body
 	_face.texture = _data.face
