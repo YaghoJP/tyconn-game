@@ -46,7 +46,7 @@ func moveToCounter() -> void:
 func orderCompleted() -> void:
 	_itemBox.hide()
 	waitingOrder = false
-	var counterTopPos: float = counterPosition.y - 180
+	var counterTopPos: float = counterPosition.y - 140
 	
 	var tween:Tween = create_tween()
 	var finalPos: Vector2 = Vector2(counterPosition.x, counterTopPos)
