@@ -19,7 +19,7 @@ var counterPosition: Vector2
 var waitingOrder: bool
 var beingServed: bool
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	
 	_itemLabel.text = str(currentOrderStatus)
 	
