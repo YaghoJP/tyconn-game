@@ -2,7 +2,7 @@ extends Node
 
 const COINS = preload("res://Idle Assets/Sound/coins.wav")
 const NORMAL_SFX = preload("res://Idle Assets/Sound/normal sfx.mp3")
-
+	
 @export_category("Objects")
 @export var streamPlayers: Array[AudioStreamPlayer]
 

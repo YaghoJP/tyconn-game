@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bxmbhmnjx0g6x"]
+
+[ext_resource type="FontFile" uid="uid://due6jbyye53ld" path="res://Idle Assets/Fonts/font_score.ttf" id="1_lbrpl"]
+
+[resource]
+font = ExtResource("1_lbrpl")
+font_size = 48
+font_color = Color(0, 0, 0, 1)
